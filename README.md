@@ -71,7 +71,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Coming Soon](https://live-demo.com)
+- Coming Soon
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
