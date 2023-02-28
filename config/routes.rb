@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root to: 'api#random_greeting'
   get 'api/random_greeting'
   namespace :api do
     get :random_greeting
