@@ -1,39 +1,58 @@
-export const FETCH_GREETING_REQUEST = 'FETCH_GREETING_REQUEST';
-export const FETCH_GREETING_SUCCESS = 'FETCH_GREETING_SUCCESS';
-export const FETCH_GREETING_FAILURE = 'FETCH_GREETING_FAILURE';
+// Define the initial state of the store
+const initialState = {
+  greeting: "",
+  loading: false,
+  error: null
+};
 
-export const fetchGreetingRequest = () => {
-  return {
-    type: FETCH_GREETING_REQUEST
-  }
-}
+// Define the action types
+const FETCH_GREETING_REQUEST = "FETCH_GREETING_REQUEST";
+const FETCH_GREETING_SUCCESS = "FETCH_GREETING_SUCCESS";
+const FETCH_GREETING_FAILURE = "FETCH_GREETING_FAILURE";
 
-export const fetchGreetingSuccess = (greeting) => {
-  return {
-    type: FETCH_GREETING_SUCCESS,
-    payload: greeting
-  }
-}
+// Define the action creator that will fetch the greeting
+const fetchGreeting = () => async (dispatch) => {
+  dispatch({ type: FETCH_GREETING_REQUEST });
 
-export const fetchGreetingFailure = (error) => {
-  return {
-    type: FETCH_GREETING_FAILURE,
-    payload: error
-  }
-}
+  try {
+    const response = await fetch("https://example.com/api/greeting");
+    const data = await response.json();
 
-export const fetchRandomGreeting = () => {
-  return (dispatch) => {
-    dispatch(fetchGreetingRequest());
-    return fetch('/api/random_greeting')
-      .then(response => response.json())
-      .then(data => {
-        const greeting = data.greeting;
-        dispatch(fetchGreetingSuccess(greeting));
-      })
-      .catch(error => {
-        const errorMessage = error.message;
-        dispatch(fetchGreetingFailure(errorMessage));
-      })
+    dispatch({ type: FETCH_GREETING_SUCCESS, payload: data.greeting });
+  } catch (error) {
+    dispatch({ type: FETCH_GREETING_FAILURE, payload: error.message });
   }
-}
+};
+
+// Define the reducer that will handle the state changes
+const greetingReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_GREETING_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case FETCH_GREETING_SUCCESS:
+      return {
+        ...state,
+        greeting: action.payload,
+        loading: false,
+        error: null
+      };
+
+    case FETCH_GREETING_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+};
+
+// Create the Redux store
+const store = createStore(greetingReducer, applyMiddleware(thunk));
