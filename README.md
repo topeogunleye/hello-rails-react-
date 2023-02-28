@@ -159,8 +159,7 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [] **[Add Styling]**
-- [] **[Add ]**
-- [] **[QR Scan]**
+- [] **[Add new pages ]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
