@@ -23,11 +23,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Capstone - Budget app <a name="about-project"></a>
+# 📖 Capstone - Hello Rails React <a name="about-project"></a>
 
 **Ruby on Rails**
 
-> budget app helps `users` to manage their budgets. It has a list of transactions associated with a category, so that you can see how much money you spent and on what. It is built on Rails using `Rubygem` as software packages system.
+> Hello Rails React is an introduction to using Ruby on Rails and React
 
 ## 🛠 Built With <a name="built-with"></a>
 
