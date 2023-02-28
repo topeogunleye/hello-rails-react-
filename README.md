@@ -158,8 +158,8 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [] **[Add Debit Cards]**
-- [] **[Add NotificationS]**
+- [] **[Add Styling]**
+- [] **[Add ]**
 - [] **[QR Scan]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -170,7 +170,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/topeogunleye/budget-app/issues).
+Feel free to check the [issues page](https://github.com/topeogunleye/hello-rails-react/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
